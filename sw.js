@@ -1,8 +1,8 @@
 /* Service Worker — XV Años Evelin Díaz Méndez
    Shell: red primero con respaldo en caché.
    Imágenes: caché primero (las fotos no cambian). */
-const CACHE_SHELL  = 'evelin-shell-v1';
-const CACHE_IMAGES = 'evelin-images-v1';
+const CACHE_SHELL  = 'evelin-shell-v2';
+const CACHE_IMAGES = 'evelin-images-v2';
 
 const SHELL = [
     './',

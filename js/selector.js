@@ -9,7 +9,8 @@
 const CFG    = window.EVENT_CONFIG;
 const TOOLS  = window.HERRAMIENTAS;
 const IDS    = TOOLS.map(t => t.id);                       // ['impresion','ampliacion','album','descartada']
-const photos = window.PHOTOS || [];
+const photos = window.PHOTOS || [];        // completa: modal
+const thumbs = window.PHOTO_THUMBS || [];  // miniatura: rejilla
 const files  = window.PHOTO_FILES || [];
 
 const STORAGE_KEY = 'evelin_diaz_selecciones';
@@ -232,7 +233,7 @@ function renderGaleria() {
         card.dataset.index = index;
         card.innerHTML =
             `<div class="photo-image-container">
-                <img data-src="${src}" alt="Foto ${index + 1}" class="lazy-img"
+                <img data-src="${thumbs[index] || src}" alt="Foto ${index + 1}" class="lazy-img"
                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'/%3E">
              </div>
              <div class="photo-number">Foto ${index + 1}</div>

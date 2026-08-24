@@ -17,7 +17,8 @@
 const CFG    = window.EVENT_CONFIG;
 const TOOLS  = window.HERRAMIENTAS;
 const IDS    = TOOLS.map(t => t.id);
-const photos = window.PHOTOS || [];
+const photos = window.PHOTOS || [];        // completa: lightbox
+const thumbs = window.PHOTO_THUMBS || [];  // miniatura: rejilla
 const files  = window.PHOTO_FILES || [];
 
 const FILTROS_VALIDOS = IDS.concat(['todas']);
@@ -109,7 +110,7 @@ function renderGaleria() {
         const fig = document.createElement('figure');
         fig.className = 'album-item';
         fig.innerHTML =
-            `<img data-src="${photos[idx]}" alt="Foto ${idx + 1}" class="lazy-img"
+            `<img data-src="${thumbs[idx] || photos[idx]}" alt="Foto ${idx + 1}" class="lazy-img"
                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'/%3E">`;
         if (!filtroActual) {
             const sel = selecciones[idx] || {};

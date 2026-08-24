@@ -58,7 +58,19 @@ en el filtro «Descartadas».
 
 ## Fotos
 
-1. Copia las fotos a `imagenes/` (de preferencia `.webp`; ver `D:\eventos\HERRAMIENTAS_FOTOS.md`).
+Dos tamaños, mismo nombre de archivo:
+
+```
+imagenes/DSC_8282.webp         ← completa (~260 KB) · modal y lightbox
+imagenes/thumb/DSC_8282.webp   ← miniatura (~15 KB) · rejilla
+```
+
+La rejilla carga solo miniaturas, así que abrir el selector con 145 fotos
+descarga ~2 MB en vez de ~34 MB. Si una foto no tiene miniatura, la rejilla
+usa la completa (no se rompe nada).
+
+1. Copia las fotos a `imagenes/` y sus miniaturas a `imagenes/thumb/`
+   (de preferencia `.webp`; ver `D:\eventos\HERRAMIENTAS_FOTOS.md`).
 2. Regenera la lista:
 
    ```bash
@@ -67,6 +79,8 @@ en el filtro «Descartadas».
 
 3. Sube la versión del script en los HTML (`js/photos.js?v=2`, `?v=3`…) —
    Cloudflare cachea agresivamente, incluidos los 404.
+
+Actualmente: **145 fotos** de la sesión previa, todas con miniatura.
 
 El orden del arreglo `window.PHOTOS` es el **índice** que se guarda en Supabase
 (`foto_index`). **Si reordenas o borras fotos del arreglo, las selecciones ya
@@ -94,7 +108,8 @@ Proyecto `nzpujmlienzfetqcgsxz` (foro7-events). Tablas usadas: `eventos`,
 ├── css/  base.css · index.css · selector.css · album.css
 ├── js/   config.js · photos.js · supabase-api.js
 │         selector.js · album.js · ayuda.js · visitas.js · foro7-footer.js
-├── imagenes/            ← aquí van las fotos
+├── imagenes/            ← fotos completas
+│   └── thumb/           ← miniaturas (mismo nombre)
 ├── generate_photo_list.py
 ├── sw.js · favicon.svg · CNAME
 ```
